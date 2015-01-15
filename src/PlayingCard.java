@@ -1,4 +1,7 @@
 // represents the suit of the card as an integer
+public abstract class PlayingCard {
+ 
+ // represents the suit of the card as an integer
  //    Heart, Club, Diamond or Spade
  //   = 1      2     3          4
  private int suit;
