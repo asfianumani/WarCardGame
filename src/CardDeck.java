@@ -1,8 +1,8 @@
 // create class CardDeck that extends CardList
 public class CardDeck extends CardList
 {
-  private int suits;
-  private int ranks;
+  private int suits=4;
+  private int ranks=13;
   public CardDeck()
   {
     Card temp;
