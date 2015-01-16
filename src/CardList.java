@@ -20,15 +20,13 @@ public class CardList
   {
     cards.add(0,card);
   }
-  public void takeCardFromTop()
+  public Card takeCardFromTop()
   {
-    cards.remove(0);
+    return cards.remove(0);
   }
   public Card removeRandomCard()
   {
-    int randCardNum=random.nextInt(cards.size());
-    cards.remove(cards.get(randCardNum));
-    return cards.get(randCardNum);
+    return cards.remove(random.nextInt(cards.size()));
   }
 }
 
