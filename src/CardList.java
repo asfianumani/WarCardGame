@@ -28,6 +28,10 @@ public class CardList
   {
     return cards.remove(random.nextInt(cards.size()));
   }
+  public Card getCard(int i)
+  {
+    return cards.get(i);
+}
 }
 
   
