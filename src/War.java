@@ -28,18 +28,18 @@ public class War {
   while(p1.getSize()>0 && p2.getSize()>0)
   {
   System.out.println(p1.getSize()+" --- round "+round+" --- "+p2.getSize());
-/*  a=p1.getCard(0);
+  a=p1.getCard(0);
   p1.takeCardFromTop();
   s1.addCardToTop(a);
   b=p2.getCard(0);
   p2.takeCardFromTop();
   s2.addCardToTop(b);
-  System.out.println(a.toString()+" : "+b.toString()); */
-  int x=s1.getCard(0).compareTo(s2.getCard(0));
-  while(x=0)
+  System.out.println(a.toString()+" : "+b.toString()); 
+  while(s1.getCard(0).compareTo(s2.getCard(0)==0)
   {
     System.out.println(p1.getSize()+" --- WAR --- "+p2.getSize());
-   //loops add to winner 
+    
+  }
   s1.removeCardFromTop();
   s2.removeCardFromTop();
   if(x>1)
