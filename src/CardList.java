@@ -24,12 +24,16 @@ public class CardList
   {
     cards.remove(0);
   }
-  public void removeRandomCard()
+  public Card removeRandomCard()
   {
     int randCardNum=random.nextInt(cards.size());
     cards.remove(cards.get(randCardNum));
+    return cards.get(randCardNum);
   }
 }
+
+  
+    
 
   
     
