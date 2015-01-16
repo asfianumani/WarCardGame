@@ -22,7 +22,7 @@ public class CardList
   }
   public void takeCardFromTop()
   {
-    return cards.remove(cards.get(random.nextInt(cards.size())));
+    cards.remove(0);
   }
   public Card removeRandomCard()
   {
