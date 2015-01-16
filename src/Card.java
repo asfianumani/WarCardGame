@@ -7,11 +7,28 @@ public class Card extends PlayingCard implements Comparable<Card>
   }
   public String toString()
   {
-    return this.getRank()+" of "+this.getSuit();
-  }
+   if (this.getSuit()==1)
+   {
+     return this.getRank()+"-"+"H";
+   }
+   else if (this.getSuit()==2)
+   {
+     return this.getRank()+"-"+"C";
+   }
+   else if (this.getSuit()==3)
+   {
+     return this.getRank()+"-"+"S";
+   }
+   else
+   {
+     return this.getRank()+"-"+"D";
+   }
+     
+   }
   public int compareTo(Card other)
   {
     return this.getRank()-other.getRank();
   }
 }
+
 
