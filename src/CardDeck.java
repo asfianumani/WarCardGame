@@ -17,12 +17,12 @@ public class CardDeck extends CardList
   }
   public void Shuffle()
   {
+    Card card;
     for(int count=0; count<10000; count++)
     {
-      Card card=removeRandomCard();
-      addCardToTop(Card card);
-      Card card2=removeRandomCard();
-      addCardToBottom(Card card2);
+      card=this.removeRandomCard();
+      this.addCardToBottom(card);
     }
   }
 }
+
