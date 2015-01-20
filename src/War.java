@@ -1,6 +1,6 @@
 
 
- public class War {
+  public class War {
 
  public static void main(String[] args) {
   // create deck, hands and stacks
@@ -40,34 +40,50 @@
   while(s1.getCard(0).compareTo(s2.getCard(0))==0)
   {
     System.out.println(p1.getSize()+" --- WAR --- "+p2.getSize());
-    for (int i=1; i<=4; i++)
-    {
       Card c=p1.getCard(0);
-      p1.takeCardFromTop();
       s1.addCardToTop(c);
-    }
-    for (int i=1; i<=4; i++)
-    {
-      Card c=p2.getCard(0);
-      p2.takeCardFromTop();
-      s2.addCardToTop(c);
-    }
-  if(s1.getCard(0).compareTo(s2.getCard(0))>0)
+      p1.takeCardFromTop();
+      Card ca=p2.getCard(0);
+      s2.addCardToTop(ca);
+     p2.takeCardFromTop();
+     while(p1.getSize()>1 && p2.getSize()>1)
+     {
+  if(p1.getCard(0).compareTo(p2.getCard(0))>0)
   {
-   for(int i=0; i<s1.getSize(); i++)
-   {
-     p1.addCardToBottom(s1.getCard(i));
+   p1.addCardToBottom(s1.getCard(0));
+   p1.addCardToBottom(s2.getCard(0));
+   s1.takeCardFromTop();
+   s2.takeCardFromTop();
+   p1.addCardToBottom(p2.getCard(0));
+   p1.addCardToBottom(p1.getCard(0));
+   p1.takeCardFromTop();                   
+   p2.takeCardFromTop();
    }
-  }
+                 
     else if(s1.getCard(0).compareTo(s2.getCard(0))<0)
-  {
-     for(int i=0; i<s1.getSize(); i++)
-   {
-       p2.addCardToBottom(s2.getCard(i));
-     }
+    {
+    p2.addCardToBottom(s1.getCard(0));
+   p2.addCardToBottom(s2.getCard(0));
+   s1.takeCardFromTop();
+   s2.takeCardFromTop();
+   p2.addCardToBottom(p1.getCard(0));
+   p2.addCardToBottom(p2.getCard(0));
+   p2.takeCardFromTop();
+   p1.takeCardFromTop();
     }
-  
+     }
+    if (p1.getSize()<1)
+    {
+      p2.addCardToBottom(p1.getCard(0));
+      p1.takeCardFromTop();
+     }
+    else
+    {
+      p1.addCardToBottom(p2.getCard(0));
+      p2.takeCardFromTop();
+    }
   }
+     
   if(s1.getCard(0).compareTo(s2.getCard(0))>0)
   {
     s1.takeCardFromTop();
@@ -83,8 +99,7 @@
     p2.addCardToBottom(b);
   }
   }
+}
   
  }
-}
-
 
