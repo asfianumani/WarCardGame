@@ -5,10 +5,11 @@ public class CardDeck extends CardList
   private int ranks=13;
   public CardDeck()
   {
+    super();
     Card temp;
     for(int suit=1; suit<=suits; suit++)
     {
-      for(int rank=1; rank<=ranks; ranks++)
+      for(int rank=1; rank<=ranks; rank++)
       {
         temp=new Card(suit, rank);
         this.addCardToBottom(temp);
