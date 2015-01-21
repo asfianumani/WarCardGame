@@ -16,10 +16,10 @@
   Card c2;
   for(int count=1; count<=cd.getSize(); count++)
   {
-    c1=cd.takeCardFromTop();
-    p1.addCardToBottom(c1);
-    c2=cd.takeCardFromTop();
-    p2.addCardToBottom(c2);
+    p1.addCardToBottom(cd.getCard(0));
+    cd.takeCardFromTop();
+    p2.addCardToBottom(cd.getCard(0));
+    cd.takeCardFromTop();
   }
   
   // play
@@ -29,23 +29,21 @@
   int round=1;
   while(p1.getSize()>0 && p2.getSize()>0)
   {
-  System.out.println(p1.getSize()+" --- round "+round+" --- "+p2.getSize());
+  System.out.println(p1.getSize()+" -- round "+round+" -- "+p2.getSize());
   a=p1.getCard(0);
   p1.takeCardFromTop();
   s1.addCardToTop(a);
   b=p2.getCard(0);
   p2.takeCardFromTop();
   s2.addCardToTop(b);
-  System.out.println(a.toString()+" : "+b.toString()); 
+  System.out.println("    "+a.toString()+" : "+b.toString()+"    "); 
   while(s1.getCard(0).compareTo(s2.getCard(0))==0)
   {
     System.out.println(p1.getSize()+" --- WAR --- "+p2.getSize());
-      Card c=p1.getCard(0);
-      s1.addCardToTop(c);
+      s1.addCardToTop(p1.getCard(0));
       p1.takeCardFromTop();
-      Card ca=p2.getCard(0);
-      s2.addCardToTop(ca);
-     p2.takeCardFromTop();
+      s2.addCardToTop(p2.getCard(0));
+      p2.takeCardFromTop();
      while(p1.getSize()>1 && p2.getSize()>1)
      {
   if(p1.getCard(0).compareTo(p2.getCard(0))>0)
@@ -60,10 +58,10 @@
    p2.takeCardFromTop();
    }
                  
-    else if(s1.getCard(0).compareTo(s2.getCard(0))<0)
+    else if(p1.getCard(0).compareTo(p2.getCard(0))<0)
     {
     p2.addCardToBottom(s1.getCard(0));
-   p2.addCardToBottom(s2.getCard(0));
+    p2.addCardToBottom(s2.getCard(0));
    s1.takeCardFromTop();
    s2.takeCardFromTop();
    p2.addCardToBottom(p1.getCard(0));
@@ -102,4 +100,5 @@
 }
   
  }
+
 
