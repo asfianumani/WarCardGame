@@ -1,6 +1,6 @@
 
 
-  public class War {
+   public class War {
 
  public static void main(String[] args) {
   // create deck, hands and stacks
@@ -12,8 +12,6 @@
   
   cd.Shuffle();
   // deal the cards
-  Card c1;
-  Card c2;
   for(int count=1; count<=cd.getSize(); count++)
   {
     p1.addCardToBottom(cd.getCard(0));
@@ -24,28 +22,20 @@
   
   // play
   System.out.println("A --- player --- B");
-  Card a;
-  Card b;
   int round=1;
   while(p1.getSize()>0 && p2.getSize()>0)
   {
   System.out.println(p1.getSize()+" -- round "+round+" -- "+p2.getSize());
-  a=p1.getCard(0);
+  s1.addCardToTop(p1.getCard(0));
   p1.takeCardFromTop();
-  s1.addCardToTop(a);
-  b=p2.getCard(0);
+  s2.addCardToTop(p2.getCard(0));
   p2.takeCardFromTop();
-  s2.addCardToTop(b);
-  System.out.println("    "+a.toString()+" : "+b.toString()+"    "); 
+  System.out.println("    "+s1.getCard(0).toString()+" : "+s2.getCard(0).toString()+"    "); 
   while(s1.getCard(0).compareTo(s2.getCard(0))==0)
   {
-    System.out.println(p1.getSize()+" --- WAR --- "+p2.getSize());
-      s1.addCardToTop(p1.getCard(0));
-      p1.takeCardFromTop();
-      s2.addCardToTop(p2.getCard(0));
-      p2.takeCardFromTop();
-     while(p1.getSize()>1 && p2.getSize()>1)
-     {
+   System.out.println(p1.getSize()+" --- WAR --- "+p2.getSize());
+   while(p1.getSize()>1 && p2.getSize()>1)
+   {
   if(p1.getCard(0).compareTo(p2.getCard(0))>0)
   {
    p1.addCardToBottom(s1.getCard(0));
@@ -58,10 +48,10 @@
    p2.takeCardFromTop();
    }
                  
-    else if(p1.getCard(0).compareTo(p2.getCard(0))<0)
-    {
-    p2.addCardToBottom(s1.getCard(0));
-    p2.addCardToBottom(s2.getCard(0));
+   else if(p1.getCard(0).compareTo(p2.getCard(0))<0)
+   {
+   p2.addCardToBottom(s1.getCard(0));
+   p2.addCardToBottom(s2.getCard(0));
    s1.takeCardFromTop();
    s2.takeCardFromTop();
    p2.addCardToBottom(p1.getCard(0));
@@ -80,25 +70,34 @@
       p1.addCardToBottom(p2.getCard(0));
       p2.takeCardFromTop();
     }
+    round++;
   }
      
   if(s1.getCard(0).compareTo(s2.getCard(0))>0)
   {
-    s1.takeCardFromTop();
+   p1.addCardToBottom(s1.getCard(0));
+   p1.addCardToBottom(s2.getCard(0));
+   s1.takeCardFromTop();
    s2.takeCardFromTop();
-   p1.addCardToBottom(a);
-   p1.addCardToBottom(b);
   }
   else if(s1.getCard(0).compareTo(s2.getCard(0))<0)
   {
+    p2.addCardToBottom(s1.getCard(0));
+    p2.addCardToBottom(s2.getCard(0));
     s1.takeCardFromTop();
     s2.takeCardFromTop();
-    p2.addCardToBottom(a);
-    p2.addCardToBottom(b);
   }
   }
+  if(p1.getSize()==0)
+  {
+    System.out.println("Player B wins");
+  }
+  else
+  {
+    System.out.println("Player A wins");
+  }
+  System.out.println("rounds:"+round);
 }
   
  }
-
 
