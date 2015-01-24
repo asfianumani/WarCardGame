@@ -1,4 +1,5 @@
 // represents the suit of the card as an integer
+// represents the suit of the card as an integer
 public abstract class PlayingCard {
  
  // represents the suit of the card as an integer
