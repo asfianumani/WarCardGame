@@ -1,6 +1,8 @@
 
 
-  public class War {
+ 
+
+public class War {
   
   public static void main(String[] args) {
     // create deck, hands and stacks
@@ -80,28 +82,28 @@
           p2.takeCardFromTop();
           p2.takeCardFromTop();
           }
-          System.out.println(p1.getSize());
-          System.out.println(p2.getSize());
         } 
       
       if(s1.getCard(0).compareTo(s2.getCard(0))>0)
       {
-        for(int i=0; i<s1.getSize(); i++)
+        int x=s2.getSize();
+        for(int i=0; i<x; i++)
         {
-        p1.addCardToBottom(s1.getCard(i));
-        p1.addCardToBottom(s2.getCard(i));
-        s1.takeCardFromTop();
-        s2.takeCardFromTop();
+        Card one=s1.takeCardFromTop();
+        Card two=s2.takeCardFromTop();
+        p1.addCardToBottom(one);
+        p1.addCardToBottom(two);
         }
       }
       else if(s1.getCard(0).compareTo(s2.getCard(0))<0)
       {
-        for(int i=0; i<s2.getSize(); i++)
+        int x=s1.getSize();
+        for(int i=0; i<x; i++)
         {
-        p2.addCardToBottom(s1.getCard(i));
-        p2.addCardToBottom(s2.getCard(i));
-        s1.takeCardFromTop();
-        s2.takeCardFromTop();
+        Card one=s1.takeCardFromTop();
+        Card two=s2.takeCardFromTop();
+        p2.addCardToBottom(one);
+        p2.addCardToBottom(two);
         }
       }
       round++;
@@ -114,9 +116,6 @@
     {
       System.out.println("Player A wins");
     }
-    System.out.println("rounds:"+(round));
+    System.out.println("rounds:"+(round-1));
   }
 }
-  
-
-
